@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .sidebar-icon {
+      @apply relative flex items-center justify-center 
+      h-12 w-12 mt-2 mb-2 mx-auto  
+    bg-gray-600 hover:bg-teal-300 dark:bg-gray-800
+    text-teal-300 hover:text-gray-900
+      hover:rounded-xl rounded-3xl
+      transition-all duration-300 ease-linear
+      cursor-pointer shadow-lg ;
+    }
+
+    .page-icon {
+      @apply relative flex items-center justify-center 
+      h-12 w-12 mt-2 mb-2 mx-auto  
+    bg-gray-900 hover:bg-teal-300 dark:bg-gray-900
+    text-teal-300 hover:text-gray-900
+      hover:rounded-xl rounded-3xl
+      transition-all duration-300 ease-linear
+      cursor-pointer shadow-lg ;
+    }
+
+    .logout {
+        @apply relative flex items-center justify-center 
+      h-12 w-12 mt-2 mb-2 mx-auto  
+    bg-gray-400 hover:bg-teal-300 dark:bg-gray-800
+    text-teal-300 hover:text-gray-900
+      hover:rounded-xl rounded-3xl
+      transition-all duration-300 ease-linear
+      cursor-pointer shadow-lg;
+    }
+  
+    .sidebar-tooltip {
+      @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md
+      text-black bg-white
+      text-xs font-bold 
+      transition-all duration-100 scale-0 origin-left;
+    }
+
+    .page-tooltip {
+      @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md
+      text-black bg-white
+      text-xs font-bold 
+      transition-all duration-100 scale-0 origin-left;
+    }
+  
+    .sidebar-hr {
+      @apply bg-white
+      border border-white
+      mx-2;
+    }
+}
