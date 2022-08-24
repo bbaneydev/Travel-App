@@ -71,33 +71,46 @@ const Dashboard = ({currentUser, openModal }) => {
 
     return (
         <div className='w-full pl-48'>
-            <h1 className='text-3xl text-gray-100 font-mono'>Welcome back, {currentUser.username}</h1>
+            <h1 className='text-3xl text-gray-100 font-mono'>Welcome back, {currentUser.username[0].toUpperCase() + currentUser.username.substring(1)}</h1>
             <div className='flex flex-row h-80 ml-20 mt-5 rounded-2xl bg-gray-800 shadow-xl'>
                 <h3 className='text-3xl pt-4 pl-6 text-gray-100 font-mono pr-4'>Upcoming Trips</h3>
                 <Link to='/addtrip'>
                     <ToolTip icon={<IoIosAddCircleOutline size={44} />} text={'Add Trip'} />
                 </Link>
             </div>
-            <div className='flex flex-row w-full mt-[-15%] relative items-center'>
-                <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideLeft} size={55}/>
-                <div id='slider' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                    {displayTrips}
+            {displayTrips.length > 0 ? 
+                <div className='flex flex-row w-full mt-[-15%] relative items-center'>
+                    <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideLeft} size={55}/>
+                    <div id='slider' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
+                        {displayTrips}
+                    </div>
+                    <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideRight} size={55} />
                 </div>
-                <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideRight} size={55} />
-            </div>
+            :
+                <div className='mb-[20%] mt-[-15%]'>
+                   <h1 className='text-gray-100 font-mono ml-28 mt-4'>You currently have no scheduled trips, click the button above to start one!</h1>
+                </div>
+            }
             <div className='flex flex-row mt-5 w-[95%]'>
                 <h3 className='text-3xl pt-4 pl-6 text-gray-100 font-mono pr-4'>Photo Albums</h3>
                     <Link to='/addalbum'>
                         <ToolTip2 icon={<IoIosAddCircleOutline size={44} />} text={'Add Album'} />
                     </Link>
             </div>
-            <div className='flex flex-row ml-5 relative items-center h-72 rounded-2xl bg-gray-800 shadow-xl pt-2'>
-                <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideLeft2} size={55}/>
-                <div id='slider2' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                    {displayAlbums}
+            {displayAlbums.length > 0 ? 
+                <div className='flex flex-row ml-5 relative items-center h-72 rounded-2xl bg-gray-800 shadow-xl pt-2'>
+                    <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideLeft2} size={55}/>
+                    <div id='slider2' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
+                        {displayAlbums}
+                    </div>
+                    <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideRight2} size={55} />
                 </div>
-                <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideRight2} size={55} />
+            :
+            <div className='h-72 rounded-2xl bg-gray-800 shadow-xl pt-2'>
+                <h1 className='text-gray-100 font-mono ml-10 mt-4'>You currently have no photo albums, click the button above to start one!</h1>
             </div>
+        
+        }
         </div>
     )
 }

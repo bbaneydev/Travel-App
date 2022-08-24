@@ -12,6 +12,7 @@ console.log(album);
                     <ToolTip icon={<IoIosAddCircleOutline size={44} />} text={'Add Album'} />
                 </Link>
             </div>
+            {album.length > 0 ? 
                 <div className='flex flex-row flex-wrap'>
                     {album.map((item) => (
                         <Link to={`/albums/${item.id}`}>
@@ -26,7 +27,12 @@ console.log(album);
                             </div>
                         </Link>
                     ))}
-            </div>   
+                </div>   
+            :
+                <div>
+                    <h1 className='text-gray-100 font-mono ml-10 mt-4'>You currently have no photo albums, click the button above to start one!</h1>
+                </div>
+            }
         </div>
     )
 }

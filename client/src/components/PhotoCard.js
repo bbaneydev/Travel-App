@@ -18,7 +18,7 @@ const PhotoCard = ({ title, photo, who, date, id, deletePhoto }) => {
             method: 'DELETE'
         })
         .then(deletePhoto(photos))
-        .then(navigate(0, {replace: true}))
+        .then(navigate('/', {replace: true}))
     }
 
     if(!photos) {

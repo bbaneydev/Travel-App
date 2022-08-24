@@ -59,7 +59,8 @@ const ViewAlbum = ({ deletePhoto, currentUser, addPhoto }) => {
         .then(res => res.json())
         .then((newPhoto) => {
             addPhoto(newPhoto)
-            navigate(0, {replace: true})
+            navigate('/', {replace: true})
+            navigate(0)
         })
     }
 

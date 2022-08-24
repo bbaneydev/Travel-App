@@ -25,7 +25,7 @@ const AddAlbum = ({ currentUser, addAlbum }) => {
         .then((newAlbum) => {
             console.log(newAlbum);
             addAlbum(newAlbum)
-            navigate('/albums', {replace: true})
+            navigate('/', {replace: true})
             navigate(0)
         })
     }

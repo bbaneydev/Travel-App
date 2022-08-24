@@ -46,7 +46,7 @@ const TripDetails = ({ openModal, closeModal, afterOpenModal, modalIsOpen, delet
             body: JSON.stringify({ text })
         })
         .then(res => res.json())
-        .then(navigate(0, {replace: true}))
+        .then(navigate('/', {replace: true}))
     }
 
     function handleDelete() {
